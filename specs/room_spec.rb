@@ -29,7 +29,20 @@ class TestRoom < MiniTest::Test
     assert_equal([@song_1, @song_2, @song_3], @room_1.songs)
   end
 
+  def test_check_in
+    @room_1.check_in(@guest_2)
+    assert_equal(4, @room_1.guest_count())
+  end
 
+  def test_check_out()
+  @room_1.check_out(@guest_2)
+  assert_equal(2, @room_1.guest_count())
+end
+
+def test_add_song
+  @room_1.add_song_to_room(@song_1)
+  assert_equal("Rick Astley", "Never Gonna Give You Up",@room_1.add_song_to_room)
+end
 
 
 
